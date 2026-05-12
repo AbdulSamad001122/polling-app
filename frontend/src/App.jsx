@@ -1,4 +1,3 @@
-// Clerk's Show component used inline per-route for auth gating
 import { Show } from "@clerk/react";
 import CreatePoll from "./pages/CreatePoll.jsx";
 import VotePoll from "./pages/VotePoll.jsx";

@@ -1,0 +1,37 @@
+name: poll-app-backend
+
+services:
+  mongodb:
+    image: mongo:7.0
+    container_name: poll-app-mongodb
+    restart: unless-stopped
+    ports:
+      - "${MONGO_PORT:-27017}:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USERNAME:-root}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD:-pollapp_secret}
+      MONGO_INITDB_DATABASE: ${MONGO_DATABASE:-poll_app}
+    volumes:
+      - mongodb_data:/data/db
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "mongosh",
+          "--quiet",
+          "-u",
+          "${MONGO_ROOT_USERNAME:-root}",
+          "-p",
+          "${MONGO_ROOT_PASSWORD:-pollapp_secret}",
+          "--authenticationDatabase",
+          "admin",
+          "--eval",
+          "db.adminCommand('ping').ok",
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+volumes:
+  mongodb_data:

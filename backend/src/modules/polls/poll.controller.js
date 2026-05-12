@@ -57,11 +57,7 @@ export async function handleSubmitVote(req, res) {
 
         const vote = await submitVoteService(id, voteData, clerkUserId, ipAddress);
         
-        // Fetch latest analytics to broadcast
         try {
-            // We pass null for clerkUserId because this is an internal fetch for broadcasting
-            // Wait, getPollAnalyticsService checks authorization if not published.
-            // We can just emit a "newVote" event, and the frontend can refetch if it's the admin viewing analytics.
             const io = getIO();
             io.to(id).emit("pollUpdated", { message: "New vote received!" });
         } catch (err) {

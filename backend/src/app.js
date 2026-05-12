@@ -12,8 +12,10 @@ function createApp() {
     const app = express();
 
     app.use(healthRoutes);
-    // app.use(cors()); // User requested to skip CORS restriction for now
-    app.use(cors());
+    app.use(cors({
+        origin: ["https://my-polra.vercel.app"],
+        credentials: true,
+    }));
     app.use(helmet());
     app.disable("x-powered-by");
     app.use(clerkWebhookRouter);
@@ -25,7 +27,6 @@ function createApp() {
     app.use(globalRateLimiter);
     app.use(pollRoutes);
 
-    // Global error handler must be the last middleware
     app.use(globalErrorHandler);
 
     return app;

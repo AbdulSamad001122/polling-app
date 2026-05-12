@@ -11,13 +11,11 @@ async function getOrCreateUser(clerkUserId) {
     
     if (!user) {
         try {
-            // Self-heal: Fetch user directly from Clerk if local DB is out of sync
             const clerkUser = await clerkClient.users.getUser(clerkUserId);
             if (clerkUser) {
                 const emailObj = clerkUser.emailAddresses.find(e => e.id === clerkUser.primaryEmailAddressId) || clerkUser.emailAddresses[0];
                 const email = emailObj?.emailAddress || "";
                 
-                // If user was deleted in Clerk but still exists in local DB with same email, update them
                 user = await User.findOneAndUpdate(
                     { email: email },
                     {
@@ -46,7 +44,7 @@ export async function createPollService(pollData, clerkUserId) {
     const poll = await Poll.create({
         ...pollData,
         createdBy: user._id,
-        isPublished: false, // Default to false
+        isPublished: false, 
     });
 
     return poll;
@@ -54,7 +52,7 @@ export async function createPollService(pollData, clerkUserId) {
 
 export async function getCreatorPollsService(clerkUserId) {
     const user = await getOrCreateUser(clerkUserId);
-    if (!user) return []; // Return empty array if user isn't fully synced yet
+    if (!user) return []; 
 
     const polls = await Poll.find({ createdBy: user._id })
         .sort({ createdAt: -1 })
@@ -107,7 +105,6 @@ export async function submitVoteService(pollId, voteData, clerkUserId, ipAddress
         }
     }
 
-    // Validate mandatory questions
     for (const question of poll.questions) {
         if (question.isRequired && !answeredQuestionIds.has(question._id.toString())) {
             throw ApiError.badRequest(`Question "${question.text}" is mandatory.`);
@@ -117,7 +114,6 @@ export async function submitVoteService(pollId, voteData, clerkUserId, ipAddress
     let user = null;
     if (clerkUserId) {
         user = await getOrCreateUser(clerkUserId);
-        // Optional: check if already voted
         const existingVote = await Vote.findOne({ pollId, $or: [{ userId: user?._id }, { clerkUserId }] });
         if (existingVote) {
             throw ApiError.badRequest("You have already voted on this poll");
@@ -227,7 +223,7 @@ export async function publishPollResultsService(pollId, clerkUserId) {
     }
 
     poll.isPublished = true;
-    poll.isActive = false; // Usually publishing results stops voting
+    poll.isActive = false; 
     await poll.save();
 
     return poll;

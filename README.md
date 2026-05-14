@@ -1,78 +1,91 @@
-# Pollify - Full-Stack Real-Time Polling Platform
+# Pollify
 
-Pollify is a robust full-stack web application that allows users to create, share, and manage real-time polls. Built specifically to fulfill all hackathon requirements, it features anonymous and authenticated voting, mandatory/optional questions, automatic poll expiry, and a rich real-time analytics dashboard powered by WebSockets.
+Pollify is a high-performance, full-stack polling platform designed for real-time engagement and deep data insights. It allows creators to build sophisticated polls with multiple questions, manage participant privacy, and monitor live results through a dynamic analytics dashboard.
 
-## 🚀 Features (Hackathon Requirements Fulfilled)
+## Core Capabilities
 
-- **Single Option Questions:** Allows users to choose one answer per question smoothly.
-- **Anonymous & Authenticated Responses:** Creators can toggle whether users must be signed in (via Clerk) to vote, or if guests can participate.
-- **Poll Expiry System:** Automatically closes polls when the configured expiry date is reached.
-- **Mandatory vs. Optional Questions:** Comprehensive frontend and backend validation for required questions.
-- **Deep Insights & Analytics Dashboard:** A powerful dashboard showing live leaderboards, summaries, option counts, and participant tracking.
-- **Publish Results:** Creators can publish final results, making them publicly viewable via the original poll link.
-- **Real-Time WebSockets:** Powered by `Socket.io` to provide instantaneous live response counting and leaderboard updates.
-- **Monorepo Structure:** Both frontend (React) and backend (Express) maintained in a single GitHub repository.
+### Advanced Poll Creation
+*   **Multi-Question Polls**: Support for multiple single-choice questions within a single poll instance.
+*   **Flexible Validation**: Toggle mandatory or optional questions to ensure data quality.
+*   **Automated Expiry**: Set specific dates and times for polls to close automatically.
+*   **Privacy Controls**: Choose between public discovery and private link-only access.
 
-## 🛠 Tech Stack
+### Participant Experience
+*   **Authentication Modes**: Creators can require Clerk authentication for verified responses or allow guest voting.
+*   **Anonymity Options**: Support for anonymous submissions where user identities are never linked to their votes.
+*   **Seamless Voting**: A clean, responsive interface optimized for both desktop and mobile devices.
 
-**Frontend:**
-- React (Vite)
-- Tailwind CSS
-- Clerk (Authentication)
-- Socket.io-client
-- React Router DOM
-- Axios
+### Real-Time Insights & Sharing
+*   **Live Analytics Dashboard**: Visualized data showing response trends, option counts, and participant distributions.
+*   **Instant Updates**: Powered by Socket.io for real-time leaderboard updates without page refreshes.
+*   **Instant Sharing**: Built-in QR code generation and link-sharing tools for rapid distribution.
+*   **Community Feed**: A centralized discovery page to browse and search for public poll results.
 
-**Backend:**
-- Node.js & Express.js
-- MongoDB & Mongoose
-- Socket.io
-- Clerk Express Middleware
+## Technical Foundation
 
-## 📂 Project Structure
+### Frontend
+*   **Framework**: React 19 (Vite)
+*   **Styling**: Tailwind CSS 4
+*   **Authentication**: Clerk
+*   **Real-Time**: Socket.io-client
+*   **Icons & UI**: Lucide React, React Hot Toast
 
-- `/frontend` - React application
-- `/backend` - Node.js/Express API and WebSocket server
+### Backend
+*   **Runtime**: Node.js
+*   **Framework**: Express.js
+*   **Database**: MongoDB (Mongoose)
+*   **Communication**: Socket.io for bi-directional real-time updates
+*   **Security**: Helmet, Express Rate Limit, and Joi validation
 
-## ⚙️ Local Development Setup
+## Getting Started
 
-### 1. Clone the repository
+### 1. Prerequisites
+Ensure you have Node.js (v18+) and MongoDB installed and running on your machine.
+
+### 2. Repository Setup
 ```bash
 git clone <repository-url>
 cd Poll-App
 ```
 
-### 2. Backend Setup
+### 3. Backend Configuration
+Navigate to the backend directory and install dependencies:
 ```bash
 cd backend
 npm install
 ```
-Create a `.env` file in the `/backend` directory:
+Create a `.env` file in the `backend` folder:
 ```env
 PORT=3000
-MONGODB_URI=mongodb://127.0.0.1:27017/poll_app
+MONGODB_URI=your_mongodb_connection_string
 CLERK_SECRET_KEY=your_clerk_secret_key
 CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
 ```
-Start the backend:
+Start the server:
 ```bash
 npm run dev
 ```
 
-### 3. Frontend Setup
+### 4. Frontend Configuration
+Navigate to the frontend directory and install dependencies:
 ```bash
 cd ../frontend
 npm install
 ```
-Create a `.env` file in the `/frontend` directory:
+Create a `.env` file in the `frontend` folder:
 ```env
 VITE_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
 VITE_API_URL=http://localhost:3000
 ```
-Start the frontend:
+Start the development server:
 ```bash
 npm run dev
 ```
 
-## 📝 License
-MIT
+## Project Organization
+The project follows a monorepo structure for simplified management:
+*   `/frontend`: React application containing all UI components and client-side logic.
+*   `/backend`: Node.js API server, database models, and WebSocket handlers.
+
+## License
+Distributed under the MIT License.

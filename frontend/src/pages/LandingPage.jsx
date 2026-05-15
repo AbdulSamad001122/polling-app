@@ -316,7 +316,11 @@ export default function LandingPage() {
           <div className="bg-white rounded-3xl border-2 border-secondary/10 shadow-2xl p-8 flex flex-col gap-6 animate-float">
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 bg-secondary rounded-lg flex items-center justify-center">
-                <span className="text-primary font-black text-sm">P</span>
+                <svg viewBox="0 0 64 64" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="8" y="40" width="10" height="16" rx="2.5" fill="#FFFFEB" opacity="0.45"/>
+                  <rect x="24" y="26" width="10" height="30" rx="2.5" fill="#FFFFEB" opacity="0.75"/>
+                  <rect x="40" y="12" width="10" height="44" rx="2.5" fill="#FFFFEB"/>
+                </svg>
               </div>
               <span className="font-black text-secondary">Pollify</span>
               <span className="ml-auto bg-green-100 text-green-700 text-xs font-bold px-3 py-1 rounded-full">Active</span>
@@ -376,7 +380,11 @@ export default function LandingPage() {
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6 text-center md:text-left">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-secondary rounded-lg flex items-center justify-center">
-              <span className="text-primary font-black text-sm">P</span>
+              <svg viewBox="0 0 64 64" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+                <rect x="8" y="40" width="10" height="16" rx="2.5" fill="#FFFFEB" opacity="0.45"/>
+                <rect x="24" y="26" width="10" height="30" rx="2.5" fill="#FFFFEB" opacity="0.75"/>
+                <rect x="40" y="12" width="10" height="44" rx="2.5" fill="#FFFFEB"/>
+              </svg>
             </div>
             <span className="font-black text-secondary text-lg">Pollify</span>
           </div>

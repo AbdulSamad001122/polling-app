@@ -38,8 +38,12 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-5 py-3.5 flex items-center justify-between gap-4">
           <Link to="/" className="flex items-center gap-2.5 group shrink-0">
-            <div className="w-9 h-9 bg-secondary rounded-xl flex items-center justify-center group-hover:rotate-6 group-hover:scale-110 transition-all duration-300 shadow-md">
-              <span className="text-primary font-black text-base leading-none">P</span>
+            <div className="w-9 h-9 bg-secondary rounded-xl flex items-center justify-center group-hover:rotate-6 group-hover:scale-110 transition-all duration-300 shadow-md shrink-0">
+              <svg viewBox="0 0 64 64" width="22" height="22" xmlns="http://www.w3.org/2000/svg">
+                <rect x="8" y="40" width="10" height="16" rx="2.5" fill="#FFFFEB" opacity="0.45"/>
+                <rect x="24" y="26" width="10" height="30" rx="2.5" fill="#FFFFEB" opacity="0.75"/>
+                <rect x="40" y="12" width="10" height="44" rx="2.5" fill="#FFFFEB"/>
+              </svg>
             </div>
             <span className="text-xl font-black text-secondary tracking-tight">Polra</span>
           </Link>

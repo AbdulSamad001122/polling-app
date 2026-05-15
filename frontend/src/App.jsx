@@ -47,7 +47,7 @@ function App() {
                 <LandingPage />
               </Show>
               <Show when="signed-in">
-                <main className="container mx-auto px-4 py-12">
+                <main className="container mx-auto px-4 py-6 sm:py-10">
                   <CreatePoll />
                 </main>
               </Show>
@@ -60,7 +60,7 @@ function App() {
           path="/my-polls"
           element={
             <Show when="signed-in">
-              <main className="container mx-auto px-4 py-12">
+              <main className="container mx-auto px-4 py-6 sm:py-10">
                 <MyPolls />
               </main>
             </Show>
@@ -69,17 +69,17 @@ function App() {
 
         {/* Public pages */}
         <Route path="/poll/:pollId" element={
-          <main className="container mx-auto px-4 py-12">
+          <main className="container mx-auto px-4 py-6 sm:py-10">
             <VotePoll />
           </main>
         } />
         <Route path="/poll/:pollId/analytics" element={
-          <main className="container mx-auto px-4 py-12">
+          <main className="container mx-auto px-4 py-6 sm:py-10">
             <PollAnalytics />
           </main>
         } />
         <Route path="/news" element={
-          <main className="container mx-auto px-4 py-12">
+          <main className="container mx-auto px-4 py-6 sm:py-10">
             <CommunityResults />
           </main>
         } />

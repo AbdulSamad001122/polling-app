@@ -129,7 +129,7 @@ export default function CreatePoll() {
     };
 
     return (
-      <div className="max-w-xl mx-auto p-8 mt-10 bg-white rounded-3xl border-2 border-secondary shadow-2xl text-center flex flex-col gap-6">
+      <div className="max-w-xl mx-auto p-4 sm:p-8 mt-6 sm:mt-10 bg-white rounded-3xl border-2 border-secondary shadow-2xl text-center flex flex-col gap-6">
         <div className="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto">
           <span className="text-3xl">🎉</span>
         </div>
@@ -218,9 +218,9 @@ export default function CreatePoll() {
   }
 
   return (
-    <div className="max-w-3xl mx-auto p-6 flex flex-col gap-8">
+    <div className="max-w-3xl mx-auto p-4 sm:p-6 flex flex-col gap-8">
       <header className="text-center">
-        <h1 className="text-4xl font-bold text-secondary">Create a New Poll</h1>
+        <h1 className="text-3xl sm:text-4xl font-bold text-secondary">Create a New Poll</h1>
         <p className="text-dark/60 mt-2">Gather insights from your community in seconds.</p>
       </header>
 
@@ -284,7 +284,7 @@ export default function CreatePoll() {
                 </button>
               )}
 
-              <div className="flex items-center gap-4">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
                 <div className="flex-1">
                   <Input
                     label={`Question ${qIndex + 1}`}
@@ -294,7 +294,7 @@ export default function CreatePoll() {
                     required
                   />
                 </div>
-                <div className="flex items-center gap-2 mt-6">
+                <div className="flex items-center gap-2 sm:mt-6">
                   <input
                     id={`required-${qIndex}`}
                     type="checkbox"
@@ -341,11 +341,11 @@ export default function CreatePoll() {
           ))}
         </div>
 
-        <div className="flex justify-between items-center bg-white p-4 rounded-2xl border-2 border-secondary/10 sticky bottom-6 shadow-lg">
-          <Button type="button" variant="secondary" onClick={addQuestion}>
+        <div className="flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-3 bg-white p-4 rounded-2xl border-2 border-secondary/10 sticky bottom-4 sm:bottom-6 shadow-lg">
+          <Button type="button" variant="secondary" onClick={addQuestion} className="w-full sm:w-auto">
             + Add Question
           </Button>
-          <Button type="submit" disabled={loading}>
+          <Button type="submit" disabled={loading} className="w-full sm:w-auto">
             {loading ? "Creating..." : "Create Poll"}
           </Button>
         </div>

@@ -36,27 +36,35 @@ export default function CommunityResults() {
   );
 
   return (
-    <div className="max-w-6xl mx-auto p-6 flex flex-col gap-10">
-      <header className="text-center space-y-4">
-        <h1 className="text-5xl font-black text-secondary tracking-tight">Community Results</h1>
-        <p className="text-dark/60 text-lg max-w-2xl mx-auto">
+    <div className="max-w-6xl mx-auto p-4 sm:p-6 flex flex-col gap-8 sm:gap-10">
+      <header className="text-center space-y-3 sm:space-y-4">
+        <h1 className="text-3xl sm:text-5xl font-black text-secondary tracking-tight">Community Results</h1>
+        <p className="text-dark/60 text-base sm:text-lg max-w-2xl mx-auto">
           Explore what the world is thinking. Browse through published poll results and discover community insights.
         </p>
       </header>
 
       <div className="relative max-w-2xl mx-auto w-full">
-        <form onSubmit={handleSearch} className="relative group">
-          <input
-            type="text"
-            placeholder="Search polls by title..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-14 pr-32 py-5 bg-white rounded-3xl border-2 border-secondary/10 shadow-xl focus:border-secondary focus:ring-4 focus:ring-secondary/5 transition-all text-lg font-medium outline-none"
-          />
-          <Search className="absolute left-5 top-1/2 -translate-y-1/2 text-secondary/40 group-focus-within:text-secondary transition-colors" size={28} />
-          <button 
+        <form onSubmit={handleSearch} className="flex flex-col sm:flex-row gap-3 sm:gap-0 sm:relative group">
+          <div className="relative flex-1">
+            <input
+              type="text"
+              placeholder="Search polls by title..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="w-full pl-12 sm:pl-14 pr-4 sm:pr-36 py-4 sm:py-5 bg-white rounded-2xl sm:rounded-3xl border-2 border-secondary/10 shadow-xl focus:border-secondary focus:ring-4 focus:ring-secondary/5 transition-all text-base sm:text-lg font-medium outline-none"
+            />
+            <Search className="absolute left-4 sm:left-5 top-1/2 -translate-y-1/2 text-secondary/40" size={22} />
+            <button
+              type="submit"
+              className="hidden sm:block absolute right-3 top-1/2 -translate-y-1/2 bg-secondary text-primary px-5 py-2.5 rounded-2xl font-bold hover:opacity-90 transition-all shadow-md text-sm"
+            >
+              Search
+            </button>
+          </div>
+          <button
             type="submit"
-            className="absolute right-3 top-1/2 -translate-y-1/2 bg-secondary text-primary px-6 py-2.5 rounded-2xl font-bold hover:opacity-90 transition-all shadow-md"
+            className="sm:hidden bg-secondary text-primary px-6 py-3 rounded-2xl font-bold hover:opacity-90 transition-all shadow-md w-full"
           >
             Search
           </button>

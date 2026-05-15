@@ -140,7 +140,7 @@ function DemoPoll() {
 export default function LandingPage() {
   return (
     <div className="flex flex-col overflow-hidden">
-      <section className="relative min-h-[92vh] flex flex-col items-center justify-center text-center px-6 pt-10 pb-32">
+      <section className="relative min-h-[92vh] flex flex-col items-center justify-center text-center px-4 sm:px-6 pt-8 pb-24 sm:pb-32">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute -top-40 -left-40 w-[600px] h-[600px] bg-secondary/8 rounded-full blur-[120px] animate-[pulse_8s_ease-in-out_infinite]" />
           <div className="absolute -bottom-20 -right-20 w-[500px] h-[500px] bg-blue-400/8 rounded-full blur-[100px] animate-[pulse_6s_ease-in-out_infinite_2s]" />
@@ -161,7 +161,7 @@ export default function LandingPage() {
         />
 
         <div className="relative z-10 max-w-5xl mx-auto flex flex-col items-center gap-8 animate-fade-in-up">
-          <div className="inline-flex items-center gap-2 bg-secondary/10 border border-secondary/20 text-secondary font-bold px-4 py-1.5 rounded-full text-sm tracking-wide uppercase animate-fade-in">
+          <div className="inline-flex items-center gap-2 bg-secondary/10 border border-secondary/20 text-secondary font-bold px-3 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm tracking-wide uppercase animate-fade-in">
             <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
             Now with live leaderboard
           </div>
@@ -181,20 +181,20 @@ export default function LandingPage() {
             <span className="italic">Matter.</span>
           </h1>
 
-          <p className="text-dark/60 text-xl leading-relaxed max-w-2xl font-normal">
+          <p className="text-dark/60 text-base sm:text-xl leading-relaxed max-w-2xl font-normal">
             Create beautiful, secure, real-time polls in seconds. Share with anyone via link or QR code.
             Get deep analytics on every response.
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-4 mt-2">
+          <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 sm:gap-4 mt-2 w-full sm:w-auto">
             <SignUpButton mode="modal">
-              <button className="group inline-flex items-center gap-2 bg-secondary text-primary px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl shadow-secondary/30 hover:shadow-secondary/50 hover:-translate-y-1 transition-all duration-300">
+              <button className="group inline-flex items-center gap-2 bg-secondary text-primary px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-bold text-base sm:text-lg shadow-2xl shadow-secondary/30 hover:shadow-secondary/50 hover:-translate-y-1 transition-all duration-300 w-full sm:w-auto justify-center">
                 Get Started Free
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
             </SignUpButton>
-            <Link to="/news">
-              <button className="inline-flex items-center gap-2 bg-white/80 backdrop-blur border-2 border-secondary/15 text-secondary px-8 py-4 rounded-2xl font-bold text-lg hover:border-secondary/40 hover:bg-white transition-all duration-300">
+            <Link to="/news" className="w-full sm:w-auto">
+              <button className="inline-flex items-center gap-2 bg-white/80 backdrop-blur border-2 border-secondary/15 text-secondary px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-bold text-base sm:text-lg hover:border-secondary/40 hover:bg-white transition-all duration-300 w-full justify-center">
                 Explore Community
               </button>
             </Link>
@@ -217,8 +217,8 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section className="bg-secondary py-12 px-6">
-        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+      <section className="bg-secondary py-10 sm:py-12 px-4 sm:px-6">
+        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
           {STATS.map((s) => (
             <div key={s.label} className="text-center group cursor-default">
               <p className="text-[#fff] text-3xl font-black font-heading group-hover:scale-110 transition-transform duration-300 inline-block">{s.value}</p>
@@ -228,12 +228,12 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section className="py-28 px-6">
+      <section className="py-16 sm:py-28 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="text-secondary/60 font-bold uppercase tracking-widest text-sm">Everything You Need</span>
-            <h2 className="text-5xl font-heading text-secondary mt-3">Built for real results.</h2>
-            <p className="text-dark/50 mt-4 text-lg max-w-xl mx-auto font-normal">
+          <div className="text-center mb-10 sm:mb-16">
+            <span className="text-secondary/60 font-bold uppercase tracking-widest text-xs sm:text-sm">Everything You Need</span>
+            <h2 className="text-3xl sm:text-5xl font-heading text-secondary mt-3">Built for real results.</h2>
+            <p className="text-dark/50 mt-4 text-base sm:text-lg max-w-xl mx-auto font-normal">
               Every feature you'd expect from an enterprise poll tool — for free.
             </p>
           </div>
@@ -257,12 +257,12 @@ export default function LandingPage() {
       </section>
 
       {/* ─── HOW IT WORKS ─────────────────────────────────────── */}
-      <section className="py-28 px-6 bg-white">
+      <section className="py-16 sm:py-28 px-4 sm:px-6 bg-white">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="text-secondary/60 font-bold uppercase tracking-widest text-sm">How It Works</span>
-            <h2 className="text-5xl font-heading text-secondary mt-3">From zero to insights.</h2>
-            <p className="text-dark/50 mt-4 text-lg max-w-xl mx-auto font-normal">
+          <div className="text-center mb-10 sm:mb-16">
+            <span className="text-secondary/60 font-bold uppercase tracking-widest text-xs sm:text-sm">How It Works</span>
+            <h2 className="text-3xl sm:text-5xl font-heading text-secondary mt-3">From zero to insights.</h2>
+            <p className="text-dark/50 mt-4 text-base sm:text-lg max-w-xl mx-auto font-normal">
               Four simple steps from creating a poll to publishing results.
             </p>
           </div>
@@ -287,12 +287,12 @@ export default function LandingPage() {
       </section>
 
       {/* ─── FAKE POLL PREVIEW ────────────────────────────────── */}
-      <section className="py-28 px-6">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div className="flex flex-col gap-6">
-            <span className="text-secondary/60 font-bold uppercase tracking-widest text-sm">Live Demo Preview</span>
-            <h2 className="text-5xl font-heading text-secondary">See it in action.</h2>
-            <p className="text-dark/55 text-lg leading-relaxed font-normal">
+      <section className="py-16 sm:py-28 px-4 sm:px-6">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 sm:gap-12 items-center">
+          <div className="flex flex-col gap-5 sm:gap-6">
+            <span className="text-secondary/60 font-bold uppercase tracking-widest text-xs sm:text-sm">Live Demo Preview</span>
+            <h2 className="text-3xl sm:text-5xl font-heading text-secondary">See it in action.</h2>
+            <p className="text-dark/55 text-base sm:text-lg leading-relaxed font-normal">
               This is what your voters see. Clean, distraction-free, works on every device.
               No login screens unless you want them.
             </p>
@@ -332,7 +332,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section className="py-28 px-6 bg-secondary relative overflow-hidden">
+      <section className="py-16 sm:py-28 px-4 sm:px-6 bg-secondary relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none opacity-5">
           <div
             style={{
@@ -346,7 +346,7 @@ export default function LandingPage() {
         <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-white/5 rounded-full blur-[80px]" />
 
         <div className="relative z-10 max-w-3xl mx-auto text-center flex flex-col items-center gap-8">
-          <h2 className="text-6xl font-heading text-[#fff] leading-tight">
+          <h2 className="text-4xl sm:text-6xl font-heading text-[#fff] leading-tight">
             Ready to poll
             <br />
             <span className="italic">the world?</span>
@@ -355,15 +355,15 @@ export default function LandingPage() {
             Join Pollify today. Create your first poll in under 60 seconds.
             No credit card. No setup. Just polls.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center w-full sm:w-auto">
             <SignUpButton mode="modal">
-              <button className="group inline-flex items-center gap-2 bg-primary text-secondary px-8 py-4 rounded-2xl font-bold text-lg hover:bg-white transition-colors shadow-xl">
+              <button className="group inline-flex items-center gap-2 bg-primary text-secondary px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-bold text-base sm:text-lg hover:bg-white transition-colors shadow-xl w-full sm:w-auto justify-center">
                 Start for Free
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
             </SignUpButton>
-            <Link to="/news">
-              <button className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-primary px-8 py-4 rounded-2xl font-bold text-lg hover:bg-white/20 transition-colors">
+            <Link to="/news" className="w-full sm:w-auto">
+              <button className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-primary px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-bold text-base sm:text-lg hover:bg-white/20 transition-colors w-full justify-center">
                 Browse Community
               </button>
             </Link>
@@ -372,8 +372,8 @@ export default function LandingPage() {
       </section>
 
       {/* ─── FOOTER ───────────────────────────────────────────── */}
-      <footer className="bg-secondary/5 border-t border-secondary/10 px-6 py-10">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+      <footer className="bg-secondary/5 border-t border-secondary/10 px-4 sm:px-6 py-8 sm:py-10">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6 text-center md:text-left">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-secondary rounded-lg flex items-center justify-center">
               <span className="text-primary font-black text-sm">P</span>

@@ -52,13 +52,13 @@ export default function MyPolls() {
   );
 
   return (
-    <div className="max-w-4xl mx-auto p-6">
-      <header className="flex justify-between items-center mb-8">
+    <div className="max-w-4xl mx-auto p-4 sm:p-6">
+      <header className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 sm:mb-8">
         <div>
-          <h1 className="text-3xl font-bold text-secondary">My Polls</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold text-secondary">My Polls</h1>
           <p className="text-dark/60 mt-1">Manage your created polls and view insights.</p>
         </div>
-        <Link to="/">
+        <Link to="/" className="self-end sm:self-auto">
           <Button>+ Create New</Button>
         </Link>
       </header>

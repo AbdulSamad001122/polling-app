@@ -167,7 +167,7 @@ export default function PollAnalytics() {
       </div>
     )}
     
-    <div className="max-w-5xl mx-auto p-6 flex flex-col gap-8">
+    <div className="max-w-5xl mx-auto p-4 sm:p-6 flex flex-col gap-6 sm:gap-8">
       <header className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-secondary/10 shadow-sm relative overflow-hidden">
         <div className="absolute top-0 left-0 w-2 h-full bg-secondary"></div>
         <div className="pl-4">
@@ -185,21 +185,21 @@ export default function PollAnalytics() {
             )}
           </div>
         </div>
-        <div className="flex gap-3">
+        <div className="flex flex-wrap gap-2 sm:gap-3 mt-3 sm:mt-0">
             <Button 
               variant="outline" 
-              className="border-secondary/20 hover:bg-primary/20 text-dark"
+              className="border-secondary/20 hover:bg-primary/20 text-dark text-sm"
               onClick={() => window.open(`/poll/${poll._id}`, '_blank')}
             >
               View Public Page
             </Button>
             {!poll.isPublished && poll.isActive && (
-              <Button variant="secondary" onClick={() => setShowCloseConfirm(true)} disabled={closing} className="border-red-500/50 text-red-600 hover:bg-red-50">
+              <Button variant="secondary" onClick={() => setShowCloseConfirm(true)} disabled={closing} className="border-red-500/50 text-red-600 hover:bg-red-50 text-sm">
                 {closing ? "Closing..." : "Close Poll"}
               </Button>
             )}
             {!poll.isPublished && (
-              <Button onClick={() => setShowConfirm(true)} disabled={publishing} className="shadow-lg shadow-secondary/20">
+              <Button onClick={() => setShowConfirm(true)} disabled={publishing} className="shadow-lg shadow-secondary/20 text-sm">
                 {publishing ? "Publishing..." : "Publish Results"}
               </Button>
             )}
@@ -207,7 +207,7 @@ export default function PollAnalytics() {
       </header>
 
       {/* Tabs */}
-      <div className="flex bg-white p-1 rounded-2xl border-2 border-secondary/10 shadow-sm w-fit mx-auto md:mx-0">
+      <div className="flex bg-white p-1 rounded-2xl border-2 border-secondary/10 shadow-sm w-full sm:w-fit mx-auto sm:mx-0 overflow-x-auto">
         <button 
           onClick={() => setActiveTab("leaderboard")}
           className={`px-6 py-2.5 rounded-xl font-bold text-sm transition-all ${activeTab === "leaderboard" ? "bg-secondary text-white shadow-md" : "text-dark/60 hover:text-dark hover:bg-primary/20"}`}

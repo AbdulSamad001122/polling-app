@@ -124,7 +124,7 @@ export default function VotePoll() {
   );
 
   if (error) return (
-    <div className="max-w-xl mx-auto p-8 mt-10 bg-white rounded-3xl border-2 border-red-100 shadow-xl text-center">
+    <div className="max-w-xl mx-auto p-4 sm:p-8 mt-6 sm:mt-10 bg-white rounded-3xl border-2 border-red-100 shadow-xl text-center">
         <h2 className="text-2xl font-bold text-red-600">Error</h2>
         <p className="text-dark/70 mt-2">{error}</p>
         <Button className="mt-6" onClick={() => navigate("/")}>Go Home</Button>
@@ -171,7 +171,7 @@ export default function VotePoll() {
   }
 
   if (voted || hasAlreadyVoted) return (
-    <div className="max-w-xl mx-auto p-8 mt-10 bg-white rounded-3xl border-2 border-secondary shadow-2xl text-center flex flex-col gap-6">
+    <div className="max-w-xl mx-auto p-4 sm:p-8 mt-6 sm:mt-10 bg-white rounded-3xl border-2 border-secondary shadow-2xl text-center flex flex-col gap-6">
         <div className="w-20 h-20 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4">
             <span className="text-4xl text-secondary">✅</span>
         </div>
@@ -186,7 +186,7 @@ export default function VotePoll() {
 
   if (isExpired || !poll.isActive) {
     return (
-      <div className="max-w-xl mx-auto p-8 mt-10 bg-white rounded-3xl border-2 border-secondary/20 shadow-xl text-center">
+      <div className="max-w-xl mx-auto p-4 sm:p-8 mt-6 sm:mt-10 bg-white rounded-3xl border-2 border-secondary/20 shadow-xl text-center">
         <h2 className="text-2xl font-bold text-secondary">Poll Closed</h2>
         <p className="text-dark/70 mt-2">This poll is no longer accepting responses.</p>
         <Button className="mt-6" onClick={() => navigate("/")}>Go Home</Button>
@@ -231,9 +231,9 @@ export default function VotePoll() {
   );
 
   return (
-    <div className="max-w-2xl mx-auto p-6 flex flex-col gap-8">
+    <div className="max-w-2xl mx-auto p-4 sm:p-6 flex flex-col gap-6 sm:gap-8">
       <header className="text-center">
-        <h1 className="text-3xl font-bold text-secondary">{poll.title}</h1>
+        <h1 className="text-2xl sm:text-3xl font-bold text-secondary">{poll.title}</h1>
         <p className="text-dark/60 mt-2">By {poll.createdBy?.firstName} {poll.createdBy?.lastName}</p>
       </header>
 
